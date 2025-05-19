@@ -26,7 +26,6 @@ function getShaShort() {
 	if (typeof sha !== 'string') {
 		throw new Error('Commit SHA is missing');
 	}
-
 	return sha.substring(0, 8) ?? null;
 }
 
@@ -38,7 +37,7 @@ function setVarName(name, value) {
 try {
 	setVarName('GITHUB_REF_NAME', getRefName());
 	setVarName('GITHUB_REF_NAME_SLUG', getRefNameSlug());
-	setVarName('GITHUB_SHA_SHORT', getShaShort);
+	setVarName('GITHUB_SHA_SHORT', getShaShort());
 } catch (error) {
 	core.setFailed(error);
 }
