@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 function getRefName() {
-	const ref = process.env.GITHUB_REF ?? github.event.release.tag_name ?? null;
+	const ref = process.env.GITHUB_REF ?? github.event?.release?.tag_name ?? null;
 	if (typeof ref !== 'string') {
 		throw new Error('Branch/tag REF is missing');
 	}
