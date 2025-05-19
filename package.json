@@ -4,7 +4,7 @@
 	"description": "Scienta's Github Actions environment variables Toolkit",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index.js",
+		"dev": "local-action . index.js .env",
 		"build": "ncc build index.js -o dist"
 	},
 	"repository": {
@@ -13,11 +13,19 @@
 	},
 	"author": "Scienta",
 	"license": "MIT",
+	"private": "true",
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"engines": {
+		"node": ">=20"
+	},
 	"dependencies": {
 		"@actions/core": "^1.11.1",
 		"@actions/github": "^6.0.1"
 	},
 	"devDependencies": {
+		"@github/local-action": "^3.2.1",
 		"@vercel/ncc": "^0.38.1"
 	}
 }
