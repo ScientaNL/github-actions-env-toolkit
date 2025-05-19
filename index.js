@@ -22,7 +22,7 @@ function getRefNameSlug() {
 }
 
 function getShaShort() {
-	const sha = github.context.sha;
+	const sha = process.env.GITHUB_SHA ?? github.context.sha ?? null;
 	if (typeof sha !== 'string') {
 		throw new Error('Commit SHA is missing');
 	}
